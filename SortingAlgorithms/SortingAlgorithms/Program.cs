@@ -11,13 +11,24 @@ namespace SortingAlgorithms
         static int[] unsortedArray;
         static void Main(string[] args)
         {
+            buildUnsortedArray();
+
+            Console.WriteLine("Unsorted int array size of {0}", unsortedArray.Length);
+
             var watch = System.Diagnostics.Stopwatch.StartNew();
             InsertionSort ISort = new InsertionSort(unsortedArray);
             watch.Stop();
-
-            
-            Console.WriteLine("Unsorted int array size of {0}", unsortedArray.Length);
+                        
             Console.WriteLine("Insertion Sort - Ticks/ Time in Milliseconds spent to create object and sort the array: " + watch.Elapsed.Ticks);
+            watch.Reset();
+
+            watch.Start();
+            MergeSort MSort = new MergeSort(unsortedArray);
+            watch.Stop();
+            
+            Console.WriteLine("Merge Sort - Ticks/ Time in Milliseconds spent to create object and sort the array: " + watch.Elapsed.Ticks);
+            Console.WriteLine(MSort.ToString());
+
 
             watch.Reset();
             watch.Start();
@@ -35,7 +46,7 @@ namespace SortingAlgorithms
             Console.ReadKey();
         }
 
-       void buildUnsortedArray()
+       static void buildUnsortedArray()
         {
             Random rnd1 = new Random();
 
