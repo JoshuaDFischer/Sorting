@@ -10,7 +10,16 @@ namespace SortingAlgorithms
     {
         static void Main(string[] args)
         {
-            //just making sure that the git is set up correctly
+            int[] arr = { 2, 3, 4, 1, 6, 4, 12, 16 };
+            InsertionSort ISort = new InsertionSort(arr);
+
+
+            var builder = new StringBuilder();
+            Array.ForEach(ISort.Array, x => builder.Append(x + ","));
+            var res = builder.ToString();
+
+            Console.WriteLine(res);
+            Console.ReadKey();
         }
     }
 }
