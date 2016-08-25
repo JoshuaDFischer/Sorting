@@ -8,18 +8,29 @@ namespace SortingAlgorithms
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            int[] arr = { 2, 3, 4, 1, 6, 4, 12, 16 };
-            InsertionSort ISort = new InsertionSort(arr);
+            int[] unsortedArray;
+            Random rnd1 = new Random();
 
+            unsortedArray = new int[1000];
+            for(int i = 0; i < unsortedArray.Length; i++)
+            {
+                unsortedArray[i] = rnd1.Next(0,1000);
+            }
 
-            var builder = new StringBuilder();
-            Array.ForEach(ISort.Array, x => builder.Append(x + ","));
-            var res = builder.ToString();
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            InsertionSort ISort = new InsertionSort(unsortedArray);
+            watch.Stop(); 
+            
+            //Console.WriteLine("Sorted Array with Insertion Sort: " + ISort.ToString());
+            Console.WriteLine("Time spent to create object and sort the array: " + watch.Elapsed);
+            Console.WriteLine("Ticks spent to create object and sort the array: " + watch.Elapsed.Ticks);
 
-            Console.WriteLine(res);
             Console.ReadKey();
         }
+
+       
     }
 }

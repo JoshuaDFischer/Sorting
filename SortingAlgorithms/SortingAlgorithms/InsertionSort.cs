@@ -39,5 +39,18 @@ namespace SortingAlgorithms
 
             }
         }
+        public override string ToString()
+        {
+            string builder = "";
+            int i = 0;
+            do
+            {
+                builder += array[i] + ",";
+                i++;
+            }
+            while (i < array.Length);
+
+            return builder;
+        }
     }
 }
